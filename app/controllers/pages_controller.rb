@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, if: :json_request?
 
   # GET /pages
   # GET /pages.json
@@ -70,5 +71,10 @@ class PagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
       params.require(:page).permit(:trackid, :url, :accessdate)
+    end
+
+  protected
+    def json_request?
+      request.format.json?
     end
 end
