@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529030017) do
+ActiveRecord::Schema.define(version: 20170531000420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170529030017) do
 
   create_table "pages", force: :cascade do |t|
     t.string   "trackid"
-    t.string   "url"
+    t.string   "visitedurl"
     t.datetime "accessdate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

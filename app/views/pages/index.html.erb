@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Trackid</th>
-      <th>Url</th>
+      <th>Visitedurl</th>
       <th>Accessdate</th>
       <th colspan="3"></th>
     </tr>
@@ -16,7 +16,7 @@
     <% @pages.each do |page| %>
       <tr>
         <td><%= page.trackid %></td>
-        <td><%= page.url %></td>
+        <td><%= page.visitedurl %></td>
         <td><%= page.accessdate %></td>
         <td><%= link_to 'Show', page %></td>
         <td><%= link_to 'Edit', edit_page_path(page) %></td>

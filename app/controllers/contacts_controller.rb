@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, if: :json_request?
 
   # GET /contacts
   # GET /contacts.json
@@ -29,7 +30,10 @@ class ContactsController < ApplicationController
     respond_to do |format|
       if @contact.save
         format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
-        format.json { render :show, status: :created, location: @contact }
+        format.json { render :otected
+      def json_request?
+        request.format.json?
+      endshow, status: :created, location: @contact }
       else
         format.html { render :new }
         format.json { render json: @contact.errors, status: :unprocessable_entity }
@@ -70,5 +74,10 @@ class ContactsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
       params.require(:contact).permit(:trackid, :name, :email)
+    end
+
+  protected
+    def json_request?
+      request.format.json?
     end
 end
