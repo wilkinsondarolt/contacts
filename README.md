@@ -19,7 +19,7 @@ To run this project you need to have:
   $ bundle install
   ```
 
-## Create and seed the database
+## Create and migrate the database
   ```
   $ rake db:create db:migrate
   ```
